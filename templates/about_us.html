@@ -4,17 +4,31 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'about_us.css' %}">
     
-    <article>
     <h1>About us</h1>
 
     <article class="connecting_people">
         <p>At JobPulse, we're dedicated to connecting talented individuals with exciting career opportunities. Our platform serves as a bridge between job seekers and employers, providing a seamless and efficient way for both parties to find the perfect match.</p>
-        <img src="../static/pictures/people_working.jpeg" width="740px" height="500px">
+        <img src="../static/pictures/people_working.jpeg" width="740px" height="500px" alt="People working">
     </article>
+
     <p>JobPulse makes the job search process simple and hassle-free. Whether you're a recent graduate looking to kickstart your career or a seasoned professional seeking new challenges, our platform offers a diverse range of job listings to suit every skill set and interest.</p>
 
-    <p>What sets us apart is our commitment to quality. We work tirelessly to ensure that every job listing on our platform is legitimate and relevant, giving our users peace of mind as they navigate their job search journey.</p>
+    <article class="secure_process">
 
-    <p>At JobPulse, we believe that everyone deserves to find meaningful work that fulfills their passions and ambitions. Join us today and take the next step towards achieving your career goals!</p>
+        <img src="https://www.opencolleges.edu.au/cdn/shop/articles/cyber_security_352d6cd2-df2e-43a3-8514-79796f1991fe.jpg?v=1692606550&width=750" width="750px" height="500px" alt="secure photo">
+
+        <p>What sets us apart is our commitment to quality. We work tirelessly to ensure that every job listing on our platform is legitimate and relevant, giving our users peace of mind as they navigate their job search journey.</p>
+
     </article>
+
+    
+    <p>At JobPulse, we believe that everyone deserves to find meaningful work that fulfills their passions and ambitions. Join us today and take the next step towards achieving your career goals!</p>
+    
+    {% if user.is_authenticated == False %}
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% else %}
+        <a href="{% url 'home' %}">View Job Posts</a>
+    {% endif %}
+    
+    
 {% endblock %}

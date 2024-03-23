@@ -5,37 +5,83 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color:whitesmoke;
-    font-family: Caveat, sans-serif
-}
-
-
-article{
-    margin-top: 2%;
-}
-
-
-article > h1{
-    font-size: 4em;
-    text-align: center;
-}
-
-article > p{
+    color: cadetblue;
+    font-family: Caveat, sans-serif;
+    font-weight: 1000;
     font-size: 1.5em;
-    width: 40%;
 }
 
-main > article > article{
+
+
+
+main  > h1{
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 0;
+}
+
+
+
+
+.connecting_people{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2em;
+    margin-bottom: 5%;
 }
 
 .connecting_people > p{
-    font-size: 2em;
+    font-size: 1.2em;
+    width: 40%;
 }
 
 
 .connecting_people > img{
     border-radius: .3em;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+
+main  > p:first-of-type {
+    text-align: center;
+    width: 60%;
+    font-size: 1.2em;
+    margin-bottom: 5%;
+}
+
+
+.secure_process{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 5%;
+}
+
+.secure_process > p{
+    width: 40%;
+    font-size: 1.2em;
+}
+
+.secure_process > img{
+    border-radius: .3em;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+main > p:last-of-type{
+    text-align: center;
+    font-size: 1.2em;
+    width: 60%;
+}
+
+
+main > a{
+    text-decoration: none;
+    color: cornflowerblue;
+    font-size: 1.2em;
+}
+
+main > a:hover{
+    text-decoration: underline;
 }

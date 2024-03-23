@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django.core.paginator import Paginator
+from django.http import FileResponse
 from django.shortcuts import render, redirect
 from FinalExam.Company.forms import CreatePostForm, SearchForm, EditPostForm, ApplyToPostForm
 from FinalExam.Company.models import Posts, Company, JobApplication
@@ -134,16 +135,17 @@ def ApplyToPost(request, pk):
                 message ="A job application from " + form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name'] + " has been made for the post: " + post.JobName + "with the message:" +  form.cleaned_data['Message']
                 from_email = form.cleaned_data['email']
                 recipient_list = [post.Recruiter.user_profile.user.email]
-                send_mail(subject=subject, message=message, from_email=from_email, recipient_list=recipient_list)
+                send_mail(subject=subject, message=message, from_email=from_email, recipient_list=recipient_list, fail_silently=False)
 
 
 
             elif post.Moderator != None: ## moderator
                 subject  = "A job application for " + post.JobName
                 message ="A job application from " + form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name'] + " has been made for the post: " + post.JobName + " with the message:" +  form.cleaned_data['Message']
-                from_email = 'summoningzombies@gmail.com'
+                from_email = form.cleaned_data['email']
                 recipient_list = [post.Moderator.user_profile.user.email]
-                send_mail(subject, message, from_email, recipient_list)
+                send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+
 
             form.save()
 
@@ -213,3 +215,10 @@ def JobApplicationView(request, pk):
     }
 
     return render(request, 'Company/job_application.html', context)
+
+
+
+@login_required(login_url='/profile/login')
+def download_resume(request, pk):
+    application = JobApplication.objects.get(pk=pk)
+    return FileResponse(application.Resume.open(), as_attachment=True, filename='resume.pdf')

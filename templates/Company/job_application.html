@@ -7,21 +7,26 @@
     <h1>Your Job Applications</h1>
 
     <p>Welcome to your personal dashboard where you can view all the job posts you've applied for. Below, you'll find a list of the job posts you've applied for along with their details.</p>
-    
-    
+
+
     <section class="view_jobs">
         {% for application in applications %}
-            <article onclick="window.location.href = '{% url 'description-post' pk=application.PostFk.id %}'" class="job">
-                <img src="{{ application.CompanyFk.CompanyImage.url }}" alt="Company Image" width="100px" height="100px">
-            
-                <article class="data">
-                
-                    <p>{{ application.JobName }}</p>
-
-                </article>
+            <article class="job">
+        
+                <img src="{{ application.CompanyFk.CompanyImage.url }}" alt="Company Image" width="130px" height="130px">
+        
+                <h1>{{ application.JobName }}</h1>
+        
+                <p>Applied on: {{ application.application_date }}</p>
+        
+        
+                <p><a href="{% url 'download-resume' pk=application.id %}">Download Sent Resume</a></p>
+        
+                <a href="{% url 'description-post' pk=application.PostFk.id %}">View Related Post</a>        
+        
             
             </article>
-        {% endfor %}            
+        {% endfor %}
 
     </section>
 

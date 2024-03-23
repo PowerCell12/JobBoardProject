@@ -1,7 +1,7 @@
 from django.urls import path
 
 from FinalExam.Company.views import CreatePost, DescriptionPost, EditPost, DeletePost, ApplyToPost, DescriptionCompany, \
-    RelatedJobs, JobApplicationView
+    RelatedJobs, JobApplicationView, download_resume
 
 urlpatterns = [
     path('create_post/', CreatePost, name='create-post'),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('<int:pk>/description_company/',  DescriptionCompany, name='description-company'),
     path('<int:pk>/view-related-jobs/', RelatedJobs, name='view-related-jobs'),
     path('<int:pk>/job-application/', JobApplicationView, name='job-application'),
+    path('<int:pk>/download-resume/', download_resume, name='download-resume'),
 ]

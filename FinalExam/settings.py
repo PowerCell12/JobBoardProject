@@ -132,8 +132,6 @@ STATICFILES_DIRS = (
     [BASE_DIR / 'static']
 )
 
-STATIC_ROOT = BASE_DIR / 'static_root'
-
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = "/"
@@ -148,7 +146,7 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+DEFAULT_FROM_EMAIL = 'summoningzombies@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
