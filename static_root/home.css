@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+main{
+    font-family: Caveat, sans-serif;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+}
+
+
+main > h1{
+    font-size: 1.8em;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+
+main > section > div:last-of-type{
+    margin-bottom: 5em;
+}
+
+main > section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.job_post:hover{
+box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.job_post{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3em;
+    background-color: #4169E1;
+    padding: 1.5em;
+    border-radius: 1em;
+    width: 30%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    cursor: pointer;
+}
+
+
+.additional_data{
+    display: flex;
+    gap: 2em;
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    font-size: 1.2em;
+}
+
+
+.pagination{
+    background-color: #4169E1;
+    padding: 1em 0 1em 1em;
+    border-radius: 1em;
+    font-size: 1.1em;
+    margin-bottom: 3em !important;
+}
+
+.pagination > span > a{
+    text-decoration: none;
+    color: #D5C1C1;
+    margin-right: 1em;
+}
+
+
+.pagination > span > a:hover{
+    text-decoration: underline;
+}
+.pagination > span > span{
+    margin-right: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+main  > form > div > label{
+    display: none;
+}
+
+main  > form > div > ul{
+    display: none;
+}
+
+
+form {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3em;
+}
+
+
+form > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form > div > input{
+    width: 100%;
+    height: 2em;
+    border-radius: 0.5em;
+    padding: .6em;
+}
+
+form > span > i{
+    color: black;
+    position: relative;
+    right: 2em;
+    cursor: pointer;
+}
+
+
+
+

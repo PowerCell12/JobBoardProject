@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'Company/create_post.css' %}">
+
+    <form action="{% url 'create-post' %}" method="post">
+
+        <h1>Post a New Job Opening</h1>
+    
+        <p>Fill out the form below to create a new job listing. Be sure to provide detailed information to attract qualified candidates.</p>
+        {{ form }}
+    
+        
+        <button><span>Create the Post</span><i></i></button>
+        
+        {% csrf_token %}
+    </form>
+
+{% endblock %}

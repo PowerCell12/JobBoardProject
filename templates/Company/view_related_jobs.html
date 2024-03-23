@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'Company/view_related_jobs.css' %}">
+    
+    
+    <h1>Your Posted Jobs</h1>
+    
+    <p>Welcome to your personal dashboard where you can view all the jobs you've posted on our platform.</p>
+    
+    
+    <section class="view_jobs">
+        {% for post in posts %}
+            <article onclick="window.location.href = '{% url 'description-post' pk=post.id %}'" class="job">
+                <img src="{{ post.CompanyFK.CompanyImage.url }}" alt="Company Image" width="100px" height="100px">
+            
+                <article class="data">
+                    <p>{{ post.JobName }}</p>
+
+                    <article class="additional_data">
+                        {% if post.SalaryRange %}
+                            <p>{{ post.SalaryRange }}</p>
+                        {% endif %}
+
+                        {% if post.Seniority %}
+                            <p>{{ post.Seniority }}</p>
+                        {% endif %}
+
+                        {% if post.Location %}
+                            <p>{{ post.Location }}</p>
+                        {% endif %}
+                    </article>
+                </article>
+            </article>
+        {% endfor %}
+
+    </section>
+{% endblock %}

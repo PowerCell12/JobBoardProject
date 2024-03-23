@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'app_auth/signup_user.css' %}">
+
+
+    <form method="post" action="{% url 'signup-user' %}">
+        <p>Sign Up</p>
+        <p>Create your account!</p>
+        <p>Please fill out the following information to create your account:</p>
+        {{ form }}
+
+        {% csrf_token %}
+
+        <button><span>Sign Up</span><i></i></button>
+    
+    </form>
+
+
+{% endblock %}

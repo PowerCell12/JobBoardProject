@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'Company/description_company.css' %}">
+
+    <section>
+        <article class="base_info">
+            <img src="{{ company.CompanyImage.url }}" alt="Company Image">
+            <article>
+                <h1>Welcome to {{ company.Name }}. Explore our mission, achievements, and the diverse career opportunities awaiting you.</h1>
+
+                <p>Company Email: {{ company.CompanyEmail }}</p>
+                {% if company.Address != None %}
+                    <p>Our Current Address:     {{ company.Address }}</p>
+                {% endif %}
+             </article>
+        </article>
+
+        <article class="description">
+        {% if company.Description != None %}
+            <p>{{ company.Description|safe }}</p>
+        {% endif %}
+        </article>
+        
+        {% if posts %}
+            <article class="related_posts">
+                    
+                <h1>Related Posts</h1>
+                <article class="posts">
+                    {% for post in posts %}
+                            <article class="job_post"  onclick="window.location.href =  '{% url 'description-post' pk=post.id %}'">
+                                <img src="{{ post.CompanyFK.CompanyImage.url }}" alt="Company Image" width="100px" height="100px">
+                
+                                <article class="data">
+                                    <p>{{ post.JobName }}</p>
+                
+                                    <article class="additional_data">
+                                        {% if post.SalaryRange %}
+                                            <p>{{ post.SalaryRange }}</p>
+                                        {% endif %}
+                
+                                        {% if post.Seniority %}
+                                            <p>{{ post.Seniority }}</p>
+                                        {% endif %}
+                
+                                        {% if post.Location %}
+                                            <p>{{ post.Location }}</p>
+                                        {% endif %}
+                                    </article>
+                                </article>
+                        
+                            </article>
+                    {% endfor %}
+                </article>
+            </article>
+        {% else %}
+            <h1>No Related Posts</h1>
+        {% endif %}
+           
+    
+    </section>
+
+
+
+{% endblock %}

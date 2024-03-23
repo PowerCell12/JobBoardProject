@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'app_auth/edit_profile.css' %}">
+
+    <form method="post" action="{% url 'edit-profile' pk=user.id %}">
+
+        <h1>Edit your profile</h1>
+    
+        <p>Please update your profile information below:</p>
+        {{ form }}
+        {{ UserModerator }}
+
+        {% csrf_token%}
+    
+        <button>
+            <span>Edit Profile</span><i></i>
+        </button>
+    
+    </form>
+    
+{% endblock %}

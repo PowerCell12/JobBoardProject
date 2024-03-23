@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'companies.css' %}">
+
+    <section class="intro_text">
+        <h1>Explore Our Partner Companies</h1>
+
+        <p>Welcome to our partner companies page! Below, you'll find a list of all the companies that are currently partnered with us on our job board. Each company represents unique opportunities and cultures, offering a diverse range of career paths and experiences.</p>
+
+        <p>Currently, we have {{ companies|length }} companies actively collaborating with us.</p>
+    </section>
+
+    <section class="companies_cards">
+
+        {% for company in companies %}
+
+            <article onclick="window.location.href = '{% url 'description-company' pk=company.id %}'" class="company">
+                <article class="details">
+                    <p>{{ company.Name }}</p>
+
+                    <p>Count of jobs posted by this company: {{ company.posts_set.count }}</p>
+                </article>
+
+                <img src="{{ company.CompanyImage.url }}" alt="Company Image" width="100px" height="100px">
+
+            </article>
+
+        {% endfor %}
+
+
+    </section>
+
+
+{% endblock %}

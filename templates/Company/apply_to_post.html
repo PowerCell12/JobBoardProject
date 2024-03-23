@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'Company/apply_to_post.css' %}">
+
+
+    <section>
+
+        <form method="post" action="{% url 'apply-to-post' pk=post.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h1>Apply to Join the Team at {{ post.CompanyFK.Name }}</h1>
+            <p>Position: {{ post.JobName }}</p>
+
+            <section>
+                {{ form }}
+            </section>
+
+            <button>
+                <span>Apply</span><i></i>
+            </button>
+        </form>
+
+
+
+    </section>
+
+{% endblock %}

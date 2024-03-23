@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Chilanka&family=Gaegu&family=Galada&family=Lily+Script+One&family=Macondo&display=swap');
+
+/* header part */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Gaegu, sans-serif;
+    background-image: url("pexels-piccinng-3075993.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+:root {
+  --global-footer-height: 2rem;
+}
+
+header{
+    background-color: #008BFF;
+    display: flex;
+    justify-content: space-evenly;
+    gap:25em;
+    box-sizing: border-box;
+    padding-top: .5em;
+    padding-bottom: 1em;
+    border-bottom: 2px solid black;
+    align-items: center;
+}
+
+
+header > nav> ul{
+    display: flex;
+    list-style: none;
+    gap: 3em;
+    font-size: 1.4em
+}
+
+header > nav> ul > li > a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid transparent;
+    padding: 0.5em;
+}
+
+header > nav> ul > li > a:hover{
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: #00C8A1;
+    box-shadow: -3px -1px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+header > p > a {
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    padding: 0.4em 0.6em 0.4em 0.6em;
+    border-radius: 0.4em;
+    background-color: #00C8A1;
+    margin-right: 0.5em;
+    font-size: 1.3em;
+}
+
+header > div > img:last-of-type{
+    border-radius: 2em;
+    cursor: pointer;
+    margin-top: .5em;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-opt {
+  display: none;
+  position: absolute;
+  background-color: #005DCF;
+  min-width: 12em;
+  box-shadow: 0 0 40px 0 rgba(0,0,0,.45);  text-align: center;
+  right: 1em;
+  border-radius: 0.3em;
+}
+
+
+.dropdown-opt > a{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 1em;
+    font-size: 1.1em;
+}
+
+
+.dropdown:hover .dropdown-opt a:hover{
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 0.3em;
+    font-weight: 600;
+}
+
+/* end for header part */
+
+
+
+
+/* start for footer part */
+footer{ /* fix */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15em;
+    background-color: #28282B;
+    height: 5em;
+}
+
+footer > p:first-of-type{
+    font-size: 1.1em;
+    color: whitesmoke
+}
+
+footer > p > a{
+    color: whitesmoke;
+    text-decoration: none;
+    margin-right: 1em;
+    font-size: 1.1em;
+}
+
+footer > p > a:hover{
+    color: #00C8A1;
+}
+/* end for footer part */
+
+
+
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    margin-top: 5em;
+    margin-bottom: 5em;
+}
+
+

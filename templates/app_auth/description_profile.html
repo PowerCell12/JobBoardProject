@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <link rel="stylesheet" href="{% static 'app_auth/description_profile.css' %}" e>
+
+        <section>
+
+            <img src="{{ user.userprofile.profile_picture.url }}" alt="{{ user.profile_picture.name }}" width=125px height="125px">
+
+            <form method="post" action="{% url 'description-profile' pk=user.id%}" enctype="multipart/form-data">
+                <p>Change your Profile Picture:</p>
+                {{ form }}
+
+                <button name="action" value="profile_picture">Submit</button>
+
+                {% csrf_token %}
+
+            </form>
+
+            <a href="{% url 'password_reset' %}">Reset your password!</a>
+
+        </section>
+
+
+        <section>
+            <p>
+                🌟 Welcome to Your Profile Page, {{ user.username }}!
+            </p>
+
+            <article>
+                <p><i class="fa-solid fa-person"></i> Profile Information:</p>
+                {% if not user.first_name and not user.last_name %}
+                    <p>- Full Name:   N/A</p>
+                {% else %}
+                    <p>- Full Name:  {{ user.first_name }} {{ user.last_name }}</p>
+                {% endif %}
+                <p>- Username:  {{ user.username }}</p>
+                <p>- Email: {{ user.email|default:'N/A' }}</p>
+                <p>- Registered On: {{ user.date_joined|date:"F j, Y"}}</p>
+            </article>
+
+            <article class="links">
+            <a href="{% url 'edit-profile' pk=user.id %}" class="first_button">Edit Profile</a>
+
+            <a href="{% url 'delete-profile' pk=user.id %}" class="last_button">Delete Profile</a>
+            </article>
+
+        </section>
+
+
+{% endblock %}

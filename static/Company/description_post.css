@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Chilanka&family=Gaegu&family=Galada&family=Kalam:wght@300;400;700&family=Lily+Script+One&family=Macondo&family=Swanky+and+Moo+Moo&display=swap');
+
+main{
+    font-family: Caveat, sans-serif;
+}
+
+main > section{
+    border: 1px solid black;
+    padding: 2em;
+    background-color: #021341;
+    border-radius: 0.5em;
+    width: 60em;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    display: flex;
+    flex-direction: column;
+}
+
+main > section > article > article > h1{
+    font-size: 1.1em;
+}
+
+main > section > article:first-of-type{
+    display: flex;
+    gap: 2em;
+    font-size: 1.2em;
+    color:whitesmoke;
+}
+
+main > section > article:first-of-type > img{
+    align-self: center;
+}
+
+
+.buttons{
+    display: flex;
+    gap:2em;
+    margin-top: 4%;
+    align-self: center;
+    font-size: 1.2em;
+    color:whitesmoke;
+}
+
+.buttons > a:last-of-type:hover{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.buttons > a:first-of-type:hover{
+    color: deepskyblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.buttons > a{
+    color:whitesmoke;
+    text-decoration: none;
+    font-family: Caveat, sans-serif;
+    margin-bottom: 1em;
+}
+
+.post_description{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.post_description > *{
+    color: whitesmoke !important;
+    font-family: Kalam, sans-serif !important;
+    font-size: 1.2em;
+}
+
+
+main > section > a:last-of-type {
+  --bg: #000;
+  --hover-bg: #389CB7;
+  --hover-text: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.6em 1.2em;
+  background: var(--bg);
+  transition: 0.2s;
+  font-size: 1.25em;
+  font-family: inherit;
+  width: 25%;
+  align-self: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+main > section > a:last-of-type:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+main > section > a:last-of-type:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+section > article:first-of-type > img{
+    border-radius: 50%;
+}

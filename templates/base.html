@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <header>
+
+        <span></span>
+
+        <nav>
+
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'companies' %}">Companies</a></li>
+                <li><a href="{% url 'about-us' %}">About Us</a></li>
+            </ul>
+        </nav>
+
+
+            {% if user.is_authenticated %}
+
+                <div class="dropdown">
+                
+                    <img id="clickableImage" src="{{ user.userprofile.profile_picture.url }}" alt="Profile Picture" width="55px" height="55px" class="dropdownimg">
+
+
+                    <div class="dropdown-opt" id="dropdownMenu">
+                        <a href="{% url 'description-profile' pk=user.id%}">My Profile</a>
+                        {% if user.is_staff == True and user.is_active == True %}
+                            <a href="{% url  'view-related-jobs' pk=user.id %}">See Your Posted Jobs</a>
+                            <a href="{% url 'create-post' %}">Create a Job Post</a>
+                        {% else %} 
+                            <a href="{% url 'job-application' pk=user.id %}">Your Job Applications</a>
+                        {% endif %}
+                        <a href="{% url 'logout-profile' pk=user.id%}">Log Out</a>
+
+                    </div>
+                
+                </div>            
+                
+            {% else %}
+
+                <p>
+                <a href="{% url 'login-profile' %}">Log In</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+                </p>
+            {% endif %}
+
+
+
+    </header>
+
+    <main>
+
+    {% block content %}
+    {% endblock %}
+
+    </main>
+
+    <footer>
+        <p>Copyright © 2024 JobPulse ℗</p>
+
+        <p>
+        <a href="https://twitter.com/home" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.snapchat.com/" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+        </p>
+    </footer>
+    
+    <script>
+        let imageElement = document.getElementById('clickableImage');
+        
+        let dropdownMenu = document.getElementById('dropdownMenu');
+
+        imageElement.addEventListener('click', function() {
+            if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+                dropdownMenu.style.display = 'block';
+            } else {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!imageElement.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

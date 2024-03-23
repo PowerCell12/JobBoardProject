@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+main{
+    font-family: Caveat, sans-serif;
+}
+
+main > section{
+    border: 1px solid black;
+    padding: 2em;
+    background-image: linear-gradient(to bottom, #0017ff, #0026e8, #002cd1, #0030b8, #0031a0, #002e8f, #002b7f, #05286e, #052362, #041d57, #03184c, #021341);
+    border-radius: 0.5em;
+    width: 37em;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    display: flex;
+    flex-direction: column;
+}
+
+main > section > article:first-of-type{
+    display: flex;
+    gap: 2em;
+    font-size: 1.2em;
+    color:whitesmoke;
+}
+
+main > section > article:first-of-type > img{
+    align-self: center;
+}
+
+
+.buttons{
+    display: flex;
+    gap:2em;
+    margin-top: 4%;
+    align-self: center;
+    font-size: 1.2em;
+    color:whitesmoke;
+}
+
+.buttons > a:last-of-type:hover{
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.buttons > a:first-of-type:hover{
+    color: deepskyblue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.buttons > a{
+    color:whitesmoke;
+    text-decoration: none;
+}
+
+section > *{
+    color: whitesmoke;
+}

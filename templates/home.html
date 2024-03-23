@@ -1,0 +1,91 @@
+{% extends  'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+
+    <h1>Discover your next career move with JobPulse. Connecting top talent with leading employers for seamless and successful job placements.</h1>
+
+    {% if not posts.has_previous  %}
+        <form action="{% url 'home' %}" method="get" id="searchForm">
+        
+            {{ form }}
+
+            <span id="input-group-text"><i class="fas fa-magnifying-glass"></i></span>
+        
+        </form>
+    {% endif %}
+
+    <section>
+
+        {% for post in posts.object_list %}
+            
+            <article class="job_post"  onclick="window.location.href =  '{% url 'description-post' pk=post.id %}'">
+                <img src="{{ post.CompanyFK.CompanyImage.url }}" alt="Company Image" width="100px" height="100px">
+
+                <article class="data">
+                    <p>{{ post.JobName }}</p>
+
+                    <article class="additional_data">
+                        {% if post.SalaryRange %}
+                            <p>{{ post.SalaryRange }}</p>
+                        {% endif %}
+
+                        {% if post.Seniority %}
+                            <p>{{ post.Seniority }}</p>
+                        {% endif %}
+
+                        {% if post.Location %}
+                            <p>{{ post.Location }}</p>
+                        {% endif %}
+                    </article>
+                </article>
+
+            </article>
+        
+        {% empty %}
+            <p>No Job Posts yet</p>
+        {% endfor %}
+
+        {% if search_field %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?search_field={{search_field}}&page=1">&laquo; first</a>
+                    <a href="?search_field={{search_field}}&page={{ posts.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?search_field={{search_field}}&page={{ posts.next_page_number }}">next</a>
+                    <a href="?search_field={{search_field}}&page={{ posts.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        {% else %}
+            <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ posts.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">next</a>
+                    <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+            
+        {% endif %}
+    </section>
+
+{% endblock %}

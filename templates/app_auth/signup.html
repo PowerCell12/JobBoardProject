@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'app_auth/signup.css' %}">
+
+    <form action="{% url 'signup' %}" method="post">
+
+        <h1>Sign Up for a free account</h1>
+
+        <p>Select below the type of account you want to create!</p>
+
+        <article class="buttons">
+
+                <button type="submit" class="btn" name="action" value="user">I'm a user</button>
+
+                <button type="submit" class="btn" name="action" value="recruiter">I'm a recruiter</button>
+            
+        </article>
+
+        {% csrf_token %}
+
+        <p>Already have an account? <a href="{% url 'login-profile' %}">Login</a></p>
+
+    </form>
+
+
+
+{% endblock %}

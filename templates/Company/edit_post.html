@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'Company/edit_post.css' %}">
+
+    <form method="post" action="{% url 'edit-post' pk=post.id %}">
+    
+        <h1>Edit Post</h1>
+        
+        
+        <p>Please update your post information below:</p>
+        {{ form }}
+    
+        <button>
+            <span>Edit Post</span><i></i>
+        </button>
+        
+        
+        {% csrf_token %}
+    
+    </form>
+    
+{% endblock %}

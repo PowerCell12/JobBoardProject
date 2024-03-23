@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+main{
+    font-family: Caveat, sans-serif;
+    display: flex;
+    gap: 1em;
+}
+
+main > section{
+    background-color:  whitesmoke;
+    height: 35em;
+    width: 28em;
+    border-radius: 1em;
+    padding: 2em;
+    background-image: linear-gradient(to bottom, #0017ff, #0026e8, #002cd1, #0030b8, #0031a0, #002e8f, #002b7f, #05286e, #052362, #041d57, #03184c, #021341);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: whitesmoke;
+    border: 1px solid black;
+}
+
+
+main > section:first-of-type > img{
+    border-radius: 100%;
+    margin-top: 2em;
+    margin-bottom: .5em;
+box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+
+main > section:last-of-type > p:first-of-type{
+    text-align: center;
+    margin-bottom: 1.3em;
+    font-size: 2em;
+}
+
+main > section:last-of-type > article > p{
+    font-size: 1.4em;
+}
+
+
+main > section:last-of-type > article{
+    margin-bottom: 4em;
+}
+
+
+.links{
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.links > a{
+    text-decoration: none;
+    color: #43BEA5;
+    font-size: 1.2em;
+}
+
+.links > a:hover {
+    text-decoration: underline;
+}
+
+
+main > section:first-of-type{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > section:first-of-type > form{
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+button {
+  --bg: #000;
+  --hover-bg: #389CB7;
+  --hover-text: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid var(--bg);
+  border-radius: 1em;
+  padding: .5em 1.5em;
+  text-align: center;
+  background: var(--bg);
+  transition: 0.2s;
+  font-size: 1.4em;
+  font-family: inherit;
+  margin-top: .5em;
+}
+
+
+button:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+button:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+
+
+
+
+main > section:first-of-type > form > p:first-of-type{
+    margin-bottom: .2em;
+    font-size: 1.5em;
+}
+
+main > section:first-of-type > form > div > input{
+    margin-bottom: 1em;
+    border-radius: 2em;
+}
+
+
+
+main > section:first-of-type > a{
+    color: #43BEA5;
+    margin-top: 3em;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+main > section:first-of-type > a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style the custom file input container */
+main > section:first-of-type > form > div > input {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #006A8C;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+main > section:first-of-type > form > div > label
+.custom-file-input-label {
+    display: block;
+    text-align: center;
+}

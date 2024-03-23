@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'app_auth/logout_profile.css' %}">
+    <section class="main_whole">
+        <section class="first_cont">
+        <p>Log Out</p>
+        
+        <p>Are you sure you want to logout?</p>
+        </section>
+        
+        <section class="second_cont">
+        <form action="{% url 'logout-profile' pk=user.id %}" method="post" id="Form">
+        
+            {% csrf_token %}
+        
+            <button name="action" value="Cancel">Cancel</button>
+            
+            
+            <button name="action" value="LogOut">Log Out</button>
+            
+                        
+        </form>
+        </section>
+    </section>
+{% endblock %}

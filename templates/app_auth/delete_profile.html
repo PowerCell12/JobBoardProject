@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'app_auth/delete_profile.css' %}">
+
+    <form method="post" action="{% url 'delete-profile' pk=user.id %}">
+
+        <h1>Delete Account</h1>
+
+        <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+
+        <section class="second_cont">
+        <button value="Cancel" name="action">Cancel</button>
+        <button value="Delete" name="action">Yes, Delete My Account</button>
+        </section>
+            
+        {% csrf_token %}
+    </form>
+
+
+
+{% endblock %}

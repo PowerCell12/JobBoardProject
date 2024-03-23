@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'app_auth/signup_recruiter.css' %}">
+
+
+    <form method="POST" action="{% url 'signup-recruiter' %}">
+
+        <p>Sign Up</p>
+    
+        <p>Create your recruitment account!</p>
+        
+        <p>Please fill out the following information to create your account:</p>
+        {{ form }}
+
+        {% csrf_token %}
+
+        <button><span>Sign Up</span><i></i></button>
+    </form>
+
+
+{% endblock %}
