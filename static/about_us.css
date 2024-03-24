@@ -18,22 +18,34 @@ main  > h1{
     font-size: 2.5em;
     text-align: center;
     margin-top: 0;
+    margin-bottom: 3.5%;
 }
 
 
 
 
 .connecting_people{
+    padding: 3rem;
+    border-radius: 0.7rem;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2em;
+    background-color: rgba(0, 0, 0, 0.4);
     margin-bottom: 5%;
+    transition: 400ms ease-in-out;
 }
 
 .connecting_people > p{
     font-size: 1.2em;
     width: 40%;
+
+}
+
+.connecting_people:hover{
+    transform: translateY(-1rem);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 
@@ -45,9 +57,18 @@ main  > h1{
 
 main  > p:first-of-type {
     text-align: center;
-    width: 60%;
+    width: 65%;
     font-size: 1.2em;
     margin-bottom: 5%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1.5em;
+    border-radius: 0.7rem;
+    transition: 400ms ease-in-out;
+}
+
+main > p:first-of-type:hover{
+    transform: translateY(-1rem);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 
@@ -57,6 +78,16 @@ main  > p:first-of-type {
     align-items: center;
     gap: 2em;
     margin-bottom: 5%;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 80%;
+    padding: 2rem;
+    border-radius: 0.7rem;
+    transition: 400ms ease-in-out;
+}
+
+.secure_process:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-1rem);
 }
 
 .secure_process > p{
@@ -64,22 +95,38 @@ main  > p:first-of-type {
     font-size: 1.2em;
 }
 
+
 .secure_process > img{
     border-radius: .3em;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
+
+
+
+
 main > p:last-of-type{
     text-align: center;
     font-size: 1.2em;
-    width: 60%;
+    width: 65%;
+    margin-bottom: 3%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    transition: 400ms ease-in-out;
 }
+
+main > p:last-of-type:hover{
+    transform: translateY(-1rem);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 
 
 main > a{
     text-decoration: none;
     color: cornflowerblue;
     font-size: 1.2em;
+    font-weight: 1000;
 }
 
 main > a:hover{

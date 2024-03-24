@@ -130,21 +130,33 @@ def ApplyToPost(request, pk):
 
         if form.is_valid():
 
-            if post.Recruiter != None: ## recruiter
-                subject  = "A job application for " + post.JobName
-                message ="A job application from " + form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name'] + " has been made for the post: " + post.JobName + "with the message:" +  form.cleaned_data['Message']
-                from_email = form.cleaned_data['email']
-                recipient_list = [post.Recruiter.user_profile.user.email]
-                send_mail(subject=subject, message=message, from_email=from_email, recipient_list=recipient_list, fail_silently=False)
+            subject  = form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name'] + " Applied: " + post.JobName + " - " + post.CompanyFK.Name
+
+            message = [
+                f"A job application has been submitted by: {form.cleaned_data['first_name']} {form.cleaned_data['last_name']}",
+                f"- Email: {form.cleaned_data['email']}",
+                f"- Position: {post.JobName}",
+            ]
+
+            if form.cleaned_data['Message']:
+                message.append(f"\nWith the Message:\n{form.cleaned_data['Message']}")
+
+            message = "\n".join(message)
 
 
+            from_email = form.cleaned_data['email']
 
-            elif post.Moderator != None: ## moderator
-                subject  = "A job application for " + post.JobName
-                message ="A job application from " + form.cleaned_data['first_name'] + " " + form.cleaned_data['last_name'] + " has been made for the post: " + post.JobName + " with the message:" +  form.cleaned_data['Message']
-                from_email = form.cleaned_data['email']
+            recipient_list = []
+            if post.Recruiter == None:
                 recipient_list = [post.Moderator.user_profile.user.email]
-                send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+            else:
+                recipient_list = [post.Recruiter.user_profile.user.email]
+
+            email = EmailMessage(subject, message, from_email, recipient_list)
+            email.attach("Resume.pdf", form.cleaned_data['Resume'].read(), form.cleaned_data['Resume'].content_type)
+
+            email.send()
+
 
 
             form.save()
