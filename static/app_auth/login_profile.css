@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 
-main{
+main {
     font-family: Caveat, sans-serif;
+    margin-top: 1em;
 }
 
 form {
@@ -9,8 +10,8 @@ form {
     padding: 2em;
     background-image: linear-gradient(to bottom, #0017ff, #0026e8, #002cd1, #0030b8, #0031a0, #002e8f, #002b7f, #05286e, #052362, #041d57, #03184c, #021341);
     border-radius: 0.5em;
-    width: 32em;
-    height: 35em;
+    width: 34em;
+    height: 36em;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     display: flex;
     flex-direction: column;
@@ -111,7 +112,9 @@ form > p:last-of-type{
 
 form > p > a{
     text-decoration: none;
-    color: #006983;
+    color: rebeccapurple;;
+    font-weight: 1000;
+    letter-spacing: .1em;
 }
 
 form > p > a:hover{
@@ -136,7 +139,7 @@ form > div:first-of-type {
 }
 
 form > div:last-of-type {
-    margin-bottom: 1.8em;
+    margin-bottom: 1.5em;
 }
 
 form  > p:nth-child(1), form > p:nth-child(2){
@@ -147,7 +150,7 @@ form  > p:nth-child(1), form > p:nth-child(2){
 
 form > p:nth-child(2){
     font-size: 1.8em;
-    margin-bottom: 2em;
+    margin-bottom: 1.6em;
 }
 
 

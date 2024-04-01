@@ -7,7 +7,7 @@ main{
 
 main > section{
     border: 1px solid black;
-    padding: 2em;
+    padding: 3em;
     background-color: #021341;
     border-radius: 0.5em;
     width: 60em;
@@ -16,8 +16,12 @@ main > section{
     flex-direction: column;
 }
 
-main > section > article > article > h1{
+.details{
     font-size: 1.1em;
+}
+
+main > section > article > article > h1{
+    font-size: 1.2em;
 }
 
 main > section > article:first-of-type{
@@ -27,7 +31,8 @@ main > section > article:first-of-type{
     color:whitesmoke;
 }
 
-main > section > article:first-of-type > img{
+
+main > section > article:first-of-type > a {
     align-self: center;
 }
 
@@ -60,12 +65,15 @@ main > section > article:first-of-type > img{
     text-decoration: none;
     font-family: Caveat, sans-serif;
     margin-bottom: 1em;
+    font-weight: 800;
+    font-size: 1.125em;
 }
 
 .post_description{
     display: flex;
     flex-direction: column;
     margin-top: 2em;
+    margin-left: 1em;
 }
 
 .post_description > *{
@@ -92,6 +100,7 @@ main > section > a:last-of-type {
   align-self: center;
   text-align: center;
   text-decoration: none;
+  margin-top: 1em;
 }
 
 

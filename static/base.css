@@ -18,13 +18,20 @@ body{
 header{
     background-color: #008BFF;
     display: flex;
-    justify-content: space-evenly;
-    gap:25em;
+    justify-content: center;
     box-sizing: border-box;
     padding-top: .5em;
     padding-bottom: 1em;
     border-bottom: 2px solid black;
     align-items: center;
+}
+
+header > nav{
+    position: absolute;
+}
+#right{
+    position: relative;
+    left: 44em;
 }
 
 
@@ -98,7 +105,6 @@ header > div > img:last-of-type{
     background-color: cornflowerblue;
     color: white;
     border-radius: 0.3em;
-    font-weight: 600;
 }
 
 /* end for header part */
@@ -144,5 +150,3 @@ main{
     margin-top: 5em;
     margin-bottom: 5em;
 }
-
-

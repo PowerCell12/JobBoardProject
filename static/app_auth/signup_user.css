@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 
 main{
-        font-family: Caveat, sans-serif
+        font-family: Caveat, sans-serif;
+        margin-top: 1em;
 }
 
 form{
@@ -21,7 +22,8 @@ form > p:first-of-type{
     font-size: 3em;
     margin: 0;
     text-align: center;
-    color: whitesmoke
+    color: whitesmoke;
+    font-weight: 1000;
 }
 
 form > p:nth-child(2){
@@ -51,8 +53,10 @@ form > div:last-of-type{
 
 
 form > p:nth-child(3){
-    font-size: 1.2em;
-    color:whitesmoke
+    font-size: 1.3em;
+    color:whitesmoke;
+    font-weight: 500;
+    margin-top: 0;
 }
 
 

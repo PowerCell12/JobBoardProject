@@ -7,6 +7,7 @@ main{
     color: whitesmoke;
     font-family: Caveat, sans-serif;
     justify-content: flex-start;
+    align-items: center;
 }
 
 main > h1{
@@ -16,19 +17,19 @@ main > h1{
 }
 
 main > p{
-    font-size: 1.8em;
+    font-size: 2em;
     margin-top: .5em;
     margin-bottom: 2em;
     text-align: center;
+    font-weight: 600;
 }
 
 
 .view_jobs{
     display: flex;
     flex-direction: row;
-    gap: 1em;
     flex-wrap: wrap;
-    margin-left: 11%
+    justify-content: center;
 }
 
 
@@ -65,4 +66,10 @@ main > p{
 
 .job:hover{
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#no_posted_jobs{
+    font-size: 2.5em;
+    font-weight: 1000;
+    text-align: center;
 }

@@ -29,6 +29,7 @@ form > p:first-of-type{
     font-size: 1.5em;
     text-align: center;
     margin-top: 0.2em;
+    font-weight: 600;
 }
 
 
@@ -49,10 +50,11 @@ form > div > input{
 
 
 form > div:last-of-type{
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     display: flex;
     flex-direction: row;
     gap: .7em;
+    margin-top: 1.5em;
 }
 
 form > div > textarea{
@@ -64,6 +66,8 @@ form > div > textarea{
 
 form > div > label{
     margin-left: 0.2em;
+    font-weight: 600;
+    font-size: 1.05em;
 }
 
 form > div > select{

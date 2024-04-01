@@ -44,6 +44,14 @@ form > div:nth-child(4){
     margin-bottom: 1.2em;
 }
 
+form > div > label{
+    font-weight: 700;
+}
+
+form > div:nth-of-type(2) > label {
+    margin-left: .3em;
+}
+
 
 form > div:nth-child(4) > label{
     color: whitesmoke;
@@ -82,6 +90,7 @@ form > p:first-of-type{
     text-align: center;
     color: whitesmoke;
     padding-bottom: .5em;
+    font-weight: 600;
 }
 
 

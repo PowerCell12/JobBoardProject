@@ -3,12 +3,12 @@
 main{
     font-family: Caveat, sans-serif;
     display: flex;
-    gap: 1em;
+    gap: 2em;
 }
 
 main > section{
     background-color:  whitesmoke;
-    height: 37em;
+    height: 39em;
     width: 30em;
     border-radius: 1em;
     padding: 2em;
@@ -31,6 +31,7 @@ main > section:last-of-type > p:first-of-type{
     text-align: center;
     margin-bottom: 1.3em;
     font-size: 2em;
+    font-weight: 1000;
 }
 
 main > section:last-of-type > article > p{
@@ -51,13 +52,13 @@ main > section:last-of-type > article{
 
 .links > a:first-of-type{
     text-decoration: none;
-    font-size: 1.2em;
     color:deepskyblue;
+    font-size: 1.4em;
 }
 
 .links > a:last-of-type{
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: red
 }
 
@@ -99,6 +100,7 @@ button {
   font-size: 1.4em;
   font-family: inherit;
   margin-top: .5em;
+  font-weight: 1000;
 }
 
 
@@ -131,9 +133,9 @@ main > section:first-of-type > form > div > input{
 
 
 main > section:first-of-type > a{
-    color: #6495ED;
+    color: deepskyblue;
     margin-top: 3em;
-    font-size: 1.2em;
+    font-size: 1.4em;
     text-decoration: none;
 }
 
@@ -155,7 +157,7 @@ main > section:first-of-type > a:hover{
 main > section:first-of-type > form > div > input {
     display: inline-block;
     padding: 8px 12px;
-    background-color: #6495ED;
+    background-color: deepskyblue;
     color: #fff;
     cursor: pointer;
     border-radius: 4px;

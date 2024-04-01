@@ -5,6 +5,7 @@ main{
     color: whitesmoke;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 
@@ -104,7 +105,7 @@ main  > form > div > ul{
 
 
 form {
-    width: 35%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,5 +135,10 @@ form > span > i{
 }
 
 
+
+#no_jobs{
+   font-size: 2em;
+    font-weight: 700;
+}
 
 

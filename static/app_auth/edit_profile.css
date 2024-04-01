@@ -36,7 +36,9 @@ form > div > input{
 
 form > div > label{
     color: whitesmoke;
-    font-size: 1.2em;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-left: .25em;
 }
 
 

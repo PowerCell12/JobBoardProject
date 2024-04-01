@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail, EmailMessage
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.http import FileResponse
 from django.shortcuts import render, redirect
 from FinalExam.Company.forms import CreatePostForm, SearchForm, EditPostForm, ApplyToPostForm
@@ -14,20 +15,27 @@ def home(request):
     form = SearchForm(request.GET)
     if form.is_valid():
         filter_by = form.cleaned_data['search_field']
-        posts = posts.filter(JobName__icontains=filter_by)
+        try:
+            posts = posts.filter(Q(JobName__icontains=filter_by)  | Q(Location__icontains=filter_by) | Q(Seniority__icontains=filter_by) | Q(Salary=int(filter_by)))
+        except ValueError as vl:
+            posts = posts.filter(Q(JobName__icontains=filter_by)  | Q(Location__icontains=filter_by) | Q(Seniority__icontains=filter_by))
+
 
     posts = posts.order_by('-date_created')
     paginated = Paginator(posts, 6)
     page_number = request.GET.get("page")
     page_obj = paginated.get_page(page_number)
 
+    count1 = posts.count()
     context = {
         'user': request.user,
         'posts': page_obj,
         'form': form,
-        'search_field': request.GET.get('search_field')
+        'search_field': request.GET.get('search_field'),
+        'count1': count1
     }
     return render(request, 'home.html', context)
+
 
 
 @login_required(login_url='/profile/login')
@@ -104,7 +112,7 @@ def DeletePost(request, pk):
     post = Posts.objects.get(pk=pk)
 
     if request.method == "POST":
-        action = request.POST.get('acton')
+        action = request.POST.get('action')
 
         if action == 'Cancel':
             return redirect('description-post', pk=pk)
@@ -146,7 +154,7 @@ def ApplyToPost(request, pk):
 
             from_email = form.cleaned_data['email']
 
-            recipient_list = []
+
             if post.Recruiter == None:
                 recipient_list = [post.Moderator.user_profile.user.email]
             else:

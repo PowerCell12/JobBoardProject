@@ -2,6 +2,7 @@
 
 main{
     font-family: Caveat, sans-serif;
+    margin-top: 1em;
 }
 
 
@@ -10,8 +11,8 @@ form{
     padding: 2em;
     background-image: linear-gradient(to bottom, #0017ff, #0026e8, #002cd1, #0030b8, #0031a0, #002e8f, #002b7f, #05286e, #052362, #041d57, #03184c, #021341);
     border-radius: 0.5em;
-    width: 30em;
-    height: 30em;
+    width: 32em;
+    height: 34em;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     display: flex;
     flex-direction: column;
@@ -77,7 +78,7 @@ form > p:last-of-type{
 
 form > p > a{
     text-decoration: none;
-    color: #006983;
+    color: rebeccapurple;
 }
 
 form > p > a:hover{

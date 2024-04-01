@@ -7,28 +7,30 @@
     <section>
 
         <article>
-        <img src="{{ post.CompanyFK.CompanyImage.url }}" width="120px" height="120px" alt="Company Image">
+            <a href="{% url 'description-company' pk=post.CompanyFK.id %}"><img src="{{ post.CompanyFK.CompanyImage.url }}" width="120px" height="120px" alt="Company Image"></a>
 
         <article>
         <h1>Exciting Opportunity: {{ post.JobName }} Position at {{ post.CompanyFK.Name }}</h1>
 
-        <p>
+        <p class="details">
             {% if post.Seniority %}
                 <strong>Position:</strong> {{ post.Seniority }}<br>
             {% endif %}
             {% if post.Location %}
                 <strong>Location:</strong> {{ post.Location }}<br>
             {% endif %}
-            {% if post.SalaryRange %}
-                <strong>Salary Range:</strong> {{ post.SalaryRange }}<br>
+            {% if post.Salary %}
+                <strong>Salary:</strong> {{ post.Salary }}<br>
             {% endif %}
         </p>
         </article>
         </article>
-            
-        <article class="post_description">
-            {{ post.Description|safe }} 
-        </article>
+
+        {% if post.Description %}
+            <article class="post_description">
+                {{ post.Description|safe }}
+            </article>
+        {% endif %}
         
         {% if user.userprofile.moderators.id == post.Moderator_id and  user.userprofile.moderators.id != None%}
             <article class="buttons">
@@ -36,7 +38,7 @@
                 <a href="{% url 'delete-post' pk=post.id %}">Delete Post</a> 
             </article>
             
-        {% elif user.userprofile.recruiters.id == post.Recruiter_id and use.userprofile.recruiter.id != None %}
+        {% elif user.userprofile.recruiters.id == post.Recruiter_id and user.userprofile.recruiters.id != None %}
             <article class="buttons">
                 <a href="{% url 'edit-post' pk=post.id %}">Edit Post</a> 
                 <a href="{% url 'delete-post' pk=post.id %}">Delete Post</a> 

@@ -20,8 +20,8 @@
                     <p>{{ post.JobName }}</p>
 
                     <article class="additional_data">
-                        {% if post.SalaryRange %}
-                            <p>{{ post.SalaryRange }}</p>
+                        {% if post.Salary %}
+                            <p>{{ post.Salary }}</p>
                         {% endif %}
 
                         {% if post.Seniority %}
@@ -34,6 +34,8 @@
                     </article>
                 </article>
             </article>
+        {% empty %}
+            <p id="no_posted_jobs">You haven't posted any jobs yet.</p>
         {% endfor %}
 
     </section>

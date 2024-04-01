@@ -32,7 +32,7 @@ CHOICES = [
 class Posts(models.Model):
     JobName = models.CharField(max_length=50)
     Description = models.CharField(null=True, blank=True)
-    SalaryRange = models.CharField(max_length=255, null=True, blank=True)
+    Salary = models.PositiveIntegerField(null=True, blank=True)
     Location = models.CharField(max_length=60, null=True, blank=True)
     Seniority = models.CharField(choices=CHOICES, null=True, blank=True)
     CompanyFK = models.ForeignKey(to="Company.Company", on_delete=models.CASCADE)

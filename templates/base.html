@@ -11,7 +11,6 @@
 
     <header>
 
-        <span></span>
 
         <nav>
 
@@ -25,7 +24,7 @@
 
             {% if user.is_authenticated %}
 
-                <div class="dropdown">
+                <div class="dropdown" id="right">
                 
                     <img id="clickableImage" src="{{ user.userprofile.profile_picture.url }}" alt="Profile Picture" width="55px" height="55px" class="dropdownimg">
 
@@ -46,7 +45,7 @@
                 
             {% else %}
 
-                <p>
+                <p id="right">
                 <a href="{% url 'login-profile' %}">Log In</a>
                 <a href="{% url 'signup' %}">Sign Up</a>
                 </p>

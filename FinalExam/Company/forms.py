@@ -11,7 +11,7 @@ class CreatePostForm(forms.ModelForm):
 
     class Meta:
         model = Posts
-        fields = ['JobName', 'Description', 'SalaryRange', 'Location', 'Seniority', 'CompanyFK']
+        fields = ['JobName', 'Description', 'Salary', 'Location', 'Seniority', 'CompanyFK']
         widgets = {
             'Description': SummernoteWidget()
         }
@@ -21,18 +21,18 @@ class CreatePostForm(forms.ModelForm):
 
         self.fields['JobName'].label = ''
         self.fields['Description'].label = 'Job Description'
-        self.fields['SalaryRange'].label = ''
+        self.fields['Salary'].label = ''
         self.fields['CompanyFK'].label = 'Employer'
         self.fields['Location'].label = ''
 
 
         self.fields['JobName'].widget.attrs['placeholder'] = 'Job Title'
-        self.fields['SalaryRange'].widget.attrs['placeholder'] = 'Salary Range'
+        self.fields['Salary'].widget.attrs['placeholder'] = 'Salary'
         self.fields['Location'].widget.attrs['placeholder'] = 'Location'
 
 
 class SearchForm(forms.Form):
-    search_field = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Search by Post Name'}))
+    search_field = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Search by Post Name, Place, Seniority or Salary'}))
 
 
 class EditPostForm(forms.ModelForm):
@@ -40,7 +40,7 @@ class EditPostForm(forms.ModelForm):
 
     class Meta:
         model = Posts
-        fields = ['JobName', 'Description', 'SalaryRange', 'Location', 'Seniority']
+        fields = ['JobName', 'Description', 'Salary', 'Location', 'Seniority']
         widgets = {
             'Description': SummernoteWidget()
         }
@@ -50,7 +50,7 @@ class EditPostForm(forms.ModelForm):
 
         self.fields['JobName'].label = 'JobName'
         self.fields['Description'].label = 'Description'
-        self.fields['SalaryRange'].label = 'Salary'
+        self.fields['Salary'].label = 'Salary'
         self.fields['Location'].label = 'Location'
 
 

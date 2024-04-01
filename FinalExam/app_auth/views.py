@@ -82,7 +82,7 @@ def SignUpRecruiter(request):
     return render(request, 'app_auth/signup_recruiter.html', context)
 
 
-
+@login_required(login_url='/profile/login')
 def LogOutView(request, pk):
 
     if request.method == 'POST':

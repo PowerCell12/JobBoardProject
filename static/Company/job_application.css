@@ -17,8 +17,8 @@ h1{
 }
 
 main > p {
-    font-size: 1.55em;
-    margin-top: .5em;
+    font-size: 1.6em;
+    margin-top: .8em;
     margin-bottom: 3em;
     font-weight: 600;
 }
@@ -27,7 +27,7 @@ main > p {
     display: flex;
     gap: 3em;
     flex-wrap: wrap;
-    margin-left: 11.5%;
+    justify-content: center;
 }
 
 
@@ -88,4 +88,10 @@ main > p {
 
 .job  > a:hover{
     text-decoration: underline;
+}
+
+#no_related_jobs{
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 1000
 }
