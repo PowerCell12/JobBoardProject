@@ -166,12 +166,11 @@ cython_debug/
 #.idea/
 
 
-
-media/images/company_pics/*
 !media/images/company_pics/.gitkeep
+media/images/company_pics/*
 
-media/images/profile_pics/*
 !media/images/profile_pics/.gitkeep
+media/images/profile_pics/*
 
-media/files/resumes/*
 !media/files/resumes/.gitkeep
+media/files/resumes/*
