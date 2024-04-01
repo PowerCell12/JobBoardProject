@@ -166,12 +166,13 @@ cython_debug/
 #.idea/
 
 
-/FinalExam/media/images/company_pics/*
-!/FinalExam/media/images/company_pics/.gitkeep
-
-/FinalExam/media/images/profile_pics/*
-!/FinalExam/media/images/profile_pics/.gitkeep
+/media/images/company_pics/*
+!/media/images/company_pics/.gitkeep
 
 
-/FinalExam/media/files/resumes/*
-!/FinalExam/media/files/resumes/.gitkeep
+/media/images/profile_pics/*
+!/media/images/profile_pics/.gitkeep
+
+
+/media/files/resumes/*
+!/media/files/resumes/.gitkeep
