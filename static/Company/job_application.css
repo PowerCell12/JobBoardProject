@@ -28,6 +28,7 @@ main > p {
     gap: 3em;
     flex-wrap: wrap;
     justify-content: center;
+    width: 80%;
 }
 
 
@@ -50,7 +51,7 @@ main > p {
     align-items: center;
     background-color: #021341;
     padding: 4em 3em 4em 3em;
-    width: 20%;
+    width: 16em;
     border-radius: 1.1em;
     border: 1px solid black;
     gap: 1.5em;

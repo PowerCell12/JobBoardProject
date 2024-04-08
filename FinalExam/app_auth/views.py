@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.views import View
 
 from FinalExam.app_auth.forms import SignUpUserForm, SignUpRecruiterForm, EditUserForm, EditModeratorForm, \
     EditUserProfileForm
@@ -176,30 +178,23 @@ def profile_edit(request, pk):
     return render(request, 'app_auth/edit-profile.html', context)
 
 
-@login_required(login_url='/profile/login')
-def profile_delete(request, pk):
 
 
-    if request.method == "POST":
+class profile_delete(LoginRequiredMixin, View):
+    login_url = '/profile/login'
+
+    def get(self, request, pk):
+        context ={
+            'user': request.user
+        }
+        return render(request, 'app_auth/delete_profile.html', context)
+
+    def post(self, request, pk):
         action = request.POST.get('action')
 
         if action == 'Cancel':
-
             return redirect(reverse('description-profile', kwargs={'pk': pk}))
-
         elif action == "Delete":
             request.user.userprofile.user.delete()
-
             logout(request)
-
             return redirect(reverse('home'))
-
-
-
-    context ={
-        'user': request.user
-    }
-
-    return  render(request, 'app_auth/delete_profile.html', context)
-
-

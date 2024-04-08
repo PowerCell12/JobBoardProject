@@ -1,10 +1,14 @@
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ValidationError
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.mail import send_mail, EmailMessage
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import FileResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, UpdateView, View, ListView
+
 from FinalExam.Company.forms import CreatePostForm, SearchForm, EditPostForm, ApplyToPostForm
 from FinalExam.Company.models import Posts, Company, JobApplication
 
@@ -72,39 +76,34 @@ def CreatePost(request):
 
 
 
-def DescriptionPost(request, pk):
-    post = Posts.objects.get(pk=pk)
 
-    something = request.user.id
+class DescriptionPostView(DetailView):
+    model = Posts
+    template_name = 'Company/description_post.html'
 
-    context = {
-        'post': post,
-        'user': request.user
-    }
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        context['post'] = Posts.objects.get(pk=self.kwargs['pk'])
+        return context
 
-    return render(request, 'Company/description_post.html', context)
+
+class EditPostView(LoginRequiredMixin, UpdateView):
+    model = Posts
+    form_class  = EditPostForm
+    template_name = 'Company/edit_post.html'
+    login_url = '/profile/login'
+
+    def get_success_url(self):
+        return reverse_lazy('description-post', kwargs={'pk': self.kwargs['pk']})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        context['post'] = Posts.objects.get(pk=self.kwargs['pk'])
+        return context
 
 
-@login_required(login_url='/profile/login')
-def EditPost(request, pk):
-    post = Posts.objects.get(pk=pk)
-
-    form = EditPostForm(instance=post)
-
-    if request.method == 'POST':
-        form = EditPostForm(request.POST, instance=post)
-
-        if form.is_valid():
-            form.save()
-            return redirect('description-post', pk=pk)
-
-    context = {
-        'user': request.user,
-        'post': post,
-        'form': form
-    }
-
-    return render(request, 'Company/edit_post.html', context)
 
 
 @login_required(login_url='/profile/login')
@@ -154,6 +153,7 @@ def ApplyToPost(request, pk):
 
             from_email = form.cleaned_data['email']
 
+            recipient_list = []
 
             if post.Recruiter == None:
                 recipient_list = [post.Moderator.user_profile.user.email]
@@ -190,17 +190,18 @@ def ApplyToPost(request, pk):
 
 
 
-def DescriptionCompany(request, pk):
-    company = Company.objects.get(pk=pk)
-    related_posts = company.posts_set.all()
+class DescriptionCompanyView(DetailView):
+    model = Company
+    template_name = 'Company/description_company.html'
 
-    context = {
-        'company': company,
-        'user': request.user,
-        'posts': related_posts
-    }
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        context['posts'] = Posts.objects.filter(CompanyFK=self.object)
+        context['company'] = Company.objects.get(pk=self.kwargs['pk'])
+        return context
 
-    return render(request, 'Company/description_company.html', context)
+
 
 
 
@@ -223,6 +224,11 @@ def RelatedJobs(request, pk):
     return render(request, 'Company/view_related_jobs.html', context)
 
 
+
+
+
+
+
 @login_required(login_url='/profile/login')
 def JobApplicationView(request, pk):
     related_applications = JobApplication.objects.filter(user_id=request.user.id)
@@ -238,7 +244,11 @@ def JobApplicationView(request, pk):
 
 
 
-@login_required(login_url='/profile/login')
-def download_resume(request, pk):
-    application = JobApplication.objects.get(pk=pk)
-    return FileResponse(application.Resume.open(), as_attachment=True, filename='resume.pdf')
+
+
+class download_resume(LoginRequiredMixin, View):
+    login_url = '/profile/login/'
+
+    def get(self, request, pk):
+        application = JobApplication.objects.get(pk=pk)
+        return FileResponse(application.Resume.open(), as_attachment=True, filename='resume.pdf')

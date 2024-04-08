@@ -40,6 +40,12 @@ class Posts(models.Model):
     Moderator = models.ForeignKey(to='app_auth.Moderators', on_delete=models.CASCADE, blank=True, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = 'Posts'
+
+    def __str__(self):
+        return f'{self.JobName}'
+
 
 
 class JobApplication(models.Model):
@@ -50,3 +56,7 @@ class JobApplication(models.Model):
     application_date = models.DateField(auto_now_add=True)
     CompanyFk = models.ForeignKey(to='Company.Company', on_delete=models.CASCADE)
     PostFk = models.ForeignKey(to='Company.Posts', on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f'{self.JobName}'
