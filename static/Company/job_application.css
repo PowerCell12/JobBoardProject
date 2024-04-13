@@ -55,6 +55,7 @@ main > p {
     border-radius: 1.1em;
     border: 1px solid black;
     gap: 1.5em;
+    transition: 200ms ease-in-out;
 }
 
 .job > h1{

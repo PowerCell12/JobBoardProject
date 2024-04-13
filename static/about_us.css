@@ -57,13 +57,14 @@ main  > h1{
 
 main  > p:first-of-type {
     text-align: center;
-    width: 65%;
+    width: 80%;
     font-size: 1.2em;
     margin-bottom: 5%;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 1.5em;
     border-radius: 0.7rem;
     transition: 400ms ease-in-out;
+
 }
 
 main > p:first-of-type:hover{
@@ -108,7 +109,7 @@ main > p:first-of-type:hover{
 main > p:last-of-type{
     text-align: center;
     font-size: 1.2em;
-    width: 65%;
+    width: 80%;
     margin-bottom: 3%;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 2rem;
@@ -127,8 +128,15 @@ main > a{
     color: cornflowerblue;
     font-size: 1.35em;
     font-weight: 1000;
+    background-color: rgba(0, 0, 0, .8);
+    padding: 2rem;
+    transition: 400ms ease-in-out;
+    border-radius: .2em;
+    width: 20%;
+    text-align: center;
 }
 
 main > a:hover{
-    text-decoration: underline;
+    transform: translateY(-1rem);
+    background-color: rgba(0, 0, 0, 1.5);
 }

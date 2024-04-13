@@ -74,6 +74,7 @@ form > div > select{
     flex-direction: row;
     border-radius: 0.5em;
     padding: 0.4em;
+    font-size: .75em;
     padding-left: 1em;
     width: 40%;
 }

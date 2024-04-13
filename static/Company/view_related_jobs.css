@@ -46,6 +46,8 @@ main > p{
         border-radius: .5em;
         cursor: pointer;
         gap: 2em;
+        transition: 300ms ease-in-out;
+
 }
 
 .job > img{
@@ -73,3 +75,4 @@ main > p{
     font-weight: 1000;
     text-align: center;
 }
+

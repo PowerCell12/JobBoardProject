@@ -18,7 +18,7 @@ section:first-of-type{
 
 
 .intro_text > h1{
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 0.5em;
     text-align: center;
     font-weight: 1000;
@@ -27,7 +27,7 @@ section:first-of-type{
 
 .intro_text > p:first-of-type{
     width: 70%;
-    font-size:1.7em;
+    font-size: 1.85em;
     margin-top: 0.5em;
     text-align: center;
     margin-bottom: 0;
@@ -37,7 +37,7 @@ section:first-of-type{
 
 .intro_text > p:last-of-type{
     width: 70%;
-    font-size:1.4em;
+    font-size:1.7em;
     margin-top: 0.5em;
     text-align: center;
     font-weight: 600;
@@ -45,13 +45,14 @@ section:first-of-type{
 
 .company{
     cursor: pointer;
-    width:33em;
+    width: 36em;
     background-color: #4169E1;
     display: flex;
     justify-content: space-evenly;
     padding: 1em .5em 1em .5em;
     color: whitesmoke;
     border-radius: .5em;
+    transition: 400ms ease-in-out;
 }
 
 

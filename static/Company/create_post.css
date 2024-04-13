@@ -187,10 +187,12 @@ form > div:nth-child(7) > select{
     border-radius: .25em;
     width: 35%;
     margin-left: .25em;
+    font-size: .72em;
 }
 
 form > div:last-of-type > select{
     border-radius: .25em;
     width: 35%;
     margin-left: .25em;
+    font-size: .72em;
 }

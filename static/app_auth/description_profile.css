@@ -8,8 +8,8 @@ main{
 
 main > section{
     background-color:  whitesmoke;
-    height: 39em;
-    width: 30em;
+    height: 42em;
+    width: 33em;
     border-radius: 1em;
     padding: 2em;
     background-image: linear-gradient(to bottom, #0017ff, #0026e8, #002cd1, #0030b8, #0031a0, #002e8f, #002b7f, #05286e, #052362, #041d57, #03184c, #021341);
@@ -30,12 +30,12 @@ box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rg
 main > section:last-of-type > p:first-of-type{
     text-align: center;
     margin-bottom: 1.3em;
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 1000;
 }
 
 main > section:last-of-type > article > p{
-    font-size: 1.4em;
+    font-size: 1.6em;
 }
 
 
@@ -122,7 +122,7 @@ button:active {
 
 main > section:first-of-type > form > p:first-of-type{
     margin-bottom: .2em;
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 
 main > section:first-of-type > form > div > input{
@@ -135,7 +135,7 @@ main > section:first-of-type > form > div > input{
 main > section:first-of-type > a{
     color: deepskyblue;
     margin-top: 3em;
-    font-size: 1.4em;
+    font-size: 1.6em;
     text-decoration: none;
 }
 
