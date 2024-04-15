@@ -1,7 +1,7 @@
-*Job Board Project*
+#Job Board Project
 This project is a job board platform built using Django, designed to help companies post job openings and candidates find suitable job opportunities.
 
-Features
+##Features
 User Authentication: Users can sign up, log in, and manage their profiles.
 Job Listings: Companies can post job listings, including job title, description, salary, location, and seniority level.
 Search and Filter: Users can search for job listings based on various criteria such as job title, location, and seniority level.
