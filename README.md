@@ -23,22 +23,22 @@ This project is a job board platform built using Django, designed to help compan
 git clone https://github.com/PowerCell12/JobBoardProject
 ```
 
-Install dependencies:
+2. Install dependencies:
 ``` bash
 pip install -r requirements.txt
 ```
 
-Set up the database:
+3. Set up the database:
 ``` python
 python manage.py migrate
 ```
 
-Run the development server:
+4. Run the development server:
 ``` python
 python manage.py runserver
 ```
 
-Access the application at http://localhost:8000 in your web browser.
+5. Access the application at http://localhost:8000 in your web browser.
 
 
 ## License
