@@ -18,9 +18,9 @@ This project is a job board platform built using Django, designed to help compan
 
 
 ## Installation
-Clone the repository:
+1. Clone the repository:
 ``` bash
-git clone https://github.com/your-username/job-board.git
+git clone https://github.com/PowerCell12/JobBoardProject
 ```
 
 Install dependencies:
@@ -40,17 +40,10 @@ python manage.py runserver
 
 Access the application at http://localhost:8000 in your web browser.
 
-Contributing
-Contributions are welcome! Here's how you can get started:
 
-Fork the repository on GitHub.
-Create a new branch with a descriptive name (git checkout -b feature-name).
-Make your changes and commit them (git commit -am 'Add new feature').
-Push your changes to your fork (git push origin feature-name).
-Submit a pull request detailing your changes.
-License
+## License
 This project is licensed under the MIT License.
 
-Acknowledgements
-Special thanks to Django for the powerful web framework.
-Thanks to Bootstrap for the responsive design components.
+## Acknowledgements
+- Special thanks to Django for the powerful web framework.
+- Thanks to Bootstrap for the responsive design components.
