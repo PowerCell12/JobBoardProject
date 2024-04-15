@@ -10,16 +10,25 @@ class UserProfile(models.Model):
     profile_picture = models.ImageField(upload_to='images/profile_pics/', blank=True, default='/default_profile_picture.png')
 
 
+    def __str__(self):
+        return f'{self.user.username}'
+
 
 class Moderators(models.Model):
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     ContactNumber = models.CharField(max_length=15, null=True, blank=True)
 
+    def __str__(self):
+        return f'{self.user_profile.user.username}'
 
 
 class Recruiters(models.Model):
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     companies = models.ManyToManyField(to="Company.Company")
+
+
+    def __str__(self):
+        return f'{self.user_profile.user.username}'
 
 
 @receiver(post_save, sender=User)

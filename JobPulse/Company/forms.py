@@ -85,3 +85,13 @@ class CompanyForm(forms.ModelForm):
         widgets = {
             'Description': SummernoteWidget(attrs={'style': 'width: 45%;'}),
         }
+
+
+class PostsForm(forms.ModelForm):
+
+    class Meta:
+        model = Posts
+        fields = '__all__'
+        widgets = {
+            'Description': SummernoteWidget(attrs={'style': 'width: 45%;'}),
+        }
